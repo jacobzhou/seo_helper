@@ -72,13 +72,17 @@ module SeoHelper
   module ControllerHelper
 
     # will also append current page number and the site name
-    def set_page_title(title)
+    def set_page_title(title, include_site_name = true)
       if params[:page]
         @page_title = SeoHelper.format_current_page(title, params[:page])
       else
         @page_title = title
       end
-      @page_title = SeoHelper.format_site_name(@page_title, SeoHelper.configuration.site_name)
+      if include_site_name
+        @page_title = SeoHelper.format_site_name(@page_title, SeoHelper.configuration.site_name)
+      else
+        @page_title = SeoHelper.format_site_name(@page_title)
+      end
     end
 
     def set_page_description(description)

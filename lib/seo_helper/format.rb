@@ -3,7 +3,7 @@ module SeoHelper
     self.configuration.pagination_formatter.call(title, page_number)
   end
 
-  def self.format_site_name(text, site_name)
+  def self.format_site_name(text, site_name = nil)
     self.configuration.site_name_formatter.call(text, site_name)
   end
 end

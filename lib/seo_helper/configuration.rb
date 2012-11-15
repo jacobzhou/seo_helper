@@ -21,7 +21,7 @@ module SeoHelper
       self.default_page_image       = ""
 
       self.pagination_formatter = lambda {|title, page_number| "#{title} - Page #{page_number}" }
-      self.site_name_formatter  = lambda {|text, site_name|    "#{text} | #{site_name}"}
+      self.site_name_formatter  = lambda {|text, site_name|  site_name.present? ? "#{text} | #{site_name}" : "#{text}" }
     end
 
   end
